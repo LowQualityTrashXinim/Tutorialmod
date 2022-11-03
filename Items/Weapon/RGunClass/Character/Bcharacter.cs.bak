@@ -1,0 +1,35 @@
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.ModLoader;
+using Terraria.ID;
+
+namespace Tutorialmod.Items.Weapon.RGunClass.Character
+{
+    public class Bcharacter : ModProjectile
+    {
+        public override void SetDefaults()
+        {
+            projectile.width = 12;
+            projectile.height = 18;
+            projectile.friendly = true;
+            projectile.ranged = true;
+            projectile.penetrate = 1;
+            projectile.timeLeft = 150;
+            projectile.tileCollide = true;
+            projectile.scale = 0.1f;
+        }
+        public override void AI()
+        {
+            if (projectile.scale < 1f)
+            {
+                projectile.scale += 0.1f;
+            }
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            Projectile.NewProjectile(projectile.position.X + 6, projectile.position.Y + 9, 0f, 0f, mod.ProjectileType("BAMcharacter"), 0, 0, projectile.owner);
+        }
+    }
+}
