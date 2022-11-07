@@ -52,15 +52,5 @@ namespace Tutorialmod.Items.Weapon
                 Projectile.velocity -= Projectile.velocity * 0.4f;
             }
         }
-        
-        //public override void Kill(int timeLeft) // remember to research about adding dust here
-        //{
-        //    for (int i = 0; i < 25; i++)
-        //    {
-        //        float speedX = Main.rand.Next(-10, 10);
-        //        float speedY = Main.rand.Next(-10, 10);
-        //        Projectile.NewProjectile(projectile.position.X + 10, projectile.position.Y + 10, speedX, speedY, ProjectileID.WoodenArrowFriendly, 28, 1f, projectile.owner);
-        //    }
-        //}
     }
 }
