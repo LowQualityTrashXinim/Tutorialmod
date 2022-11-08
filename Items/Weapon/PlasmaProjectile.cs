@@ -15,7 +15,7 @@ namespace Tutorialmod.Items.Weapon
             Projectile.height = 3;
             Projectile.friendly = true;
             Projectile.penetrate = 1;
-            Projectile.ranged = true;
+            Projectile.DamageType = DamageClass.Ranged;
             Projectile.light = 0.5f;
             Projectile.tileCollide = true;
             Projectile.ignoreWater = true;
@@ -26,7 +26,7 @@ namespace Tutorialmod.Items.Weapon
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            Projectile.NewProjectile(Projectile.position.X, Projectile.position.Y, 0, 0, Mod.Find<ModProjectile>("OnHitRangeP").Type, (int)(Projectile.damage) * 1, 0f, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, 0, 0, ModContent.ProjectileType<OnHitRangeP>(), Projectile.damage, 0f, Projectile.owner, 0f, 0f);
         }
     }
 }
